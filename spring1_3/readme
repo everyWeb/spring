@@ -1,0 +1,8 @@
+1.加相关的jar包
+ spring-context、spirng-jdbc、dbcp连接池、junit、mysql-connection
+ 
+2.编写实体类
+3.创建dao接口及其实现
+4.创建service及其实现
+5.配置applicationContext.xml
+6.编写测试类

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	
+	<!-- 数据库连接池  c3p0、dbcp、alibaba..-->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+	    <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+	    <property name="url" value="jdbc:mysql://127.0.0.1:3306/test2?characterEncoding=utf8" />
+	    <property name="username" value="root" />
+	    <property name="password" value="123456" />
+	</bean>
+	
+	<!-- jdbcTemplate -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<constructor-arg ref="dataSource"/>
+	</bean>
+	
+	<!-- userDao -->
+	<bean id="userDao" class="com.hpeu.spring.dao.impl.UserDaoImpl">
+		<constructor-arg ref="jdbcTemplate"/>
+	</bean>
+	
+	<!-- userService -->
+	<bean id="userService" class="com.hpeu.spring.service.impl.UserServiceImpl">
+		<constructor-arg ref="userDao"/>
+	</bean>
+
+</beans>
