@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Built-By: fly
-Build-Jdk: 1.8.0_60
+Built-By: Bing
+Build-Jdk: 1.8.0_151
 Created-By: Maven Integration for Eclipse
 
